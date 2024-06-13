@@ -13,6 +13,7 @@ import { connectToDatabase } from "@/lib/database";
 import { ObjectId } from "mongodb";
 import Order from "@/lib/database/models/order.model";
 import User from "@/lib/database/models/user.model";
+import Event from "@/lib/database/models/event.model";
 
 export const checkoutOrder = async (order: CheckoutOrderParams) => {
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
