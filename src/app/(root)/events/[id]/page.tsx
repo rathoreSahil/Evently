@@ -7,6 +7,7 @@ import {
 import { formatDateTime } from "@/lib/utils";
 import { SearchParamProps } from "@/types";
 import Image from "next/image";
+import Link from "next/link";
 
 const EventDetails = async ({
   params: { id },
@@ -91,9 +92,12 @@ const EventDetails = async ({
             <div className="flex flex-col gap-2">
               <p className="p-bold-20 text-grey-600">What You&apos;ll Learn:</p>
               <p className="p-medium-16 lg:p-regular-18">{event.description}</p>
-              <p className="p-medium-16 lg:p-regular-18 truncate text-primary-500 underline">
+              <Link
+                href={event.url}
+                className="w-min p-medium-16 lg:p-regular-18 truncate text-primary-500 underline"
+              >
                 {event.url}
-              </p>
+              </Link>
             </div>
           </div>
         </div>

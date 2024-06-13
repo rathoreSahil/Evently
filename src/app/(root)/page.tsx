@@ -1,3 +1,4 @@
+import CategoryFilter from "@/components/shared/CategoryFilter";
 import Collection from "@/components/shared/Collection";
 import Search from "@/components/shared/Search";
 import { Button } from "@/components/ui/button";
@@ -13,7 +14,7 @@ export default async function Home({ searchParams }: SearchParamProps) {
 
   const events = await getAllEvents({
     query: searchText,
-    limit: 6,
+    limit: 3,
     page,
     category,
   });
@@ -54,7 +55,8 @@ export default async function Home({ searchParams }: SearchParamProps) {
         </h2>
 
         <div className="flex w-full flex-col gap-5 md:flex-row">
-          <Search placeholder="Search title..." /> CategoryFilter
+          <Search placeholder="Search title..." />
+          <CategoryFilter />
         </div>
 
         <Collection
