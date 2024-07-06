@@ -103,3 +103,11 @@ export const handleError = (error: unknown) => {
   console.error(error);
   throw new Error(typeof error === "string" ? error : JSON.stringify(error));
 };
+
+export const removeConsoleLogs = () => {
+  if (process.env.NODE_ENV === "production") {
+    console.log = () => {};
+    console.warn = () => {};
+    console.error = () => {};
+  }
+};
