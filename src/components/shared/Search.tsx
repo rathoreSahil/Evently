@@ -23,7 +23,7 @@ const Search = ({
         newUrl = formUrlQuery({
           params: searchParams.toString(),
           key: "query",
-          value: query,
+          value: encodeURIComponent(query),
         });
       } else {
         newUrl = removeKeysFromQuery({
@@ -33,7 +33,7 @@ const Search = ({
       }
 
       router.push(newUrl, { scroll: false });
-    }, 300);
+    }, 1);
 
     return () => clearTimeout(delayDebounceFn);
   }, [query, searchParams, router]);

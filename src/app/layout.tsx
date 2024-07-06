@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
+import { removeConsoleLogs } from "@/lib/utils";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -22,6 +23,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  removeConsoleLogs();
+
   return (
     <ClerkProvider>
       <html lang="en">
